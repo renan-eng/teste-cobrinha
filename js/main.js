@@ -2,7 +2,8 @@ let canvas = document.getElementById('snake'); // snake é o id do meu canvas no
 let contex = canvas.getContext('2d');
 let box = 32; // tamanho de cada pixel na tela
 let snake = [];
-let score=0;
+let score = 0;
+let veloc = 100;
 
 //criando o array da cobria e sua posição inicial
 snake[0] = {
@@ -97,15 +98,19 @@ function iniciarJogo(){
     else{ //que a snake esta na posição da comida, entao irá atualizar as coordenadas de X e Y para comida
         food.x = Math.floor(Math.random() * 15 + 1) * box;
         food.y = Math.floor(Math.random() * 15 + 1) * box;
-        score=score+10;
+        score = score + 10; 
+        veloc = veloc * 10; 
+        setInterval(veloc);      
     }
     let newHead = {
         x: snakeX,
         y: snakeY
     }
 
-    snake.unshift(newHead);   
+    snake.unshift(newHead);
+    
+    jogo = setInterval(jogo, veloc);   
  
 }
 // a cada 100ms a função inciarJogo é atualizada permitindo que o jogo rode sem travamento
-let jogo = setInterval(iniciarJogo, 30);
+let jogo = setInterval(iniciarJogo, 100);
