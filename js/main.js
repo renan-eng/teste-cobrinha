@@ -108,4 +108,4 @@ function iniciarJogo(){
  
 }
 // a cada 100ms a função inciarJogo é atualizada permitindo que o jogo rode sem travamento
-let jogo = setInterval(iniciarJogo, 100);
+let jogo = setInterval(iniciarJogo, 30);
